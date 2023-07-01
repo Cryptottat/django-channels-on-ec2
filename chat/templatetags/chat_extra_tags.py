@@ -1,6 +1,6 @@
 # chat_extra_tags.py
 from django import template
-from chat.models import Room
+from ..models import Room
 
 register = template.Library()
 
