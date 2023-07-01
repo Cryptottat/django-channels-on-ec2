@@ -34,7 +34,7 @@
         let data = JSON.parse(e.data);
         let message = data['message'];
         let created = data['created'];
-        chat_log.value += ('message:[' + message +']-- created:[' + created + ']\n');
+        chat_log.value += (message +'  ' + created + '\n');
     };
 
     chatSocket.onclose = function (e) {
