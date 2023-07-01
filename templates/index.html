@@ -1,14 +1,18 @@
-# index.html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Chat Room</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
 
-<body>
+{% if user.is_authenticated %}
+{% else %}
+  <script type="text/javascript">
+    window.location.href="{% url 'common:login' %}";
+  </script>
+{% endif %}
+
 <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
-</body>
+
+
+
+
 {% load chat_extra_tags %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
 <script>
@@ -38,4 +42,4 @@
     };
 </script>
 
-</html>
+{% endblock %}
