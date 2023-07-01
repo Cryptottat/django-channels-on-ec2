@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = '/'
 
 # CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster','https://bangprolab.com','https://www.bangprolab.com']
-CSRF_TRUSTED_ORIGINS = ['*']
+# CSRF_TRUSTED_ORIGINS = ['*']
 
 CSRF_COOKIE_SAMESITE = 'None'
 
