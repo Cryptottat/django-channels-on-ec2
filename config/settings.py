@@ -16,7 +16,7 @@ import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = Path(__file__).resolve().parent  # home/ubuntu/
+BASE_DIR = Path(__file__).resolve().parent.parent  # home/ubuntu/config
 ROOT_DIR = BASE_DIR.parent  # home/
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')  # home/ubuntu/app/templates
 SECRETS_DIR = os.path.join(BASE_DIR, '.secrets')
