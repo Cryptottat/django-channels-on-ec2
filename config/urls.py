@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chat.views import Notification
+from chat.views import Notification, Home
 urlpatterns = [
+    path("",Home.as_view()),
     path("admin/", admin.site.urls),
-path('notification/', Notification.as_view())
+    path('notification/', Notification.as_view())
 ]
