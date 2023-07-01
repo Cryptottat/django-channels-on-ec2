@@ -80,8 +80,7 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = 'config.routing.application'
-
+ASGI_APPLICATION = 'config.asgi.application'
 CHANNEL_LAYERS = {
      'default': {
          'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -90,7 +89,6 @@ CHANNEL_LAYERS = {
          },
      },
  }
-
 WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
