@@ -146,3 +146,9 @@ CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster
 CSRF_COOKIE_SAMESITE = None
 
 SESSION_COOKIE_SAMESITE = 'None'
+
+X_FRAME_OPTIONS = 'ALLOW-FROM bangprolab.com'
+
+SESSION_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
