@@ -24,7 +24,7 @@
         let messages = [{% for message in old_messages %}'{{ message }}',{% endfor %}];
         let creaties = [{% for message in old_messages %}'{{ message.get_created }}',{% endfor %}];
         for (i = messages.length; i > 0; i--) {
-            chat_log.value += ('message:[' + messages[i - 1] +']-- created:[' + creaties[i - 1] + ']\n');
+            chat_log.value += (messages[i - 1] +'  ' + creaties[i - 1] + '\n');
         }
     })();
 
