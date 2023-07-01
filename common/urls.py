@@ -22,6 +22,7 @@ class DangerousLoginView(LoginView):
     def dispatch(self, request, *args, **kwargs):
         if self.redirect_authenticated_user and self.request.user.is_authenticated:
             redirect_to = self.get_success_url()
+            print("redirect_to:",redirect_to)
             if redirect_to == self.request.path:
                 raise ValueError(
                     'Redirection loop for authenticated user detected. Check that '
