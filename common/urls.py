@@ -30,6 +30,8 @@ class DangerousLoginView(LoginView):
             return HttpResponseRedirect(redirect_to)
         return super(LoginView, self).dispatch(request, *args, **kwargs)
 
+from django.contrib.auth import views as auth_views
 urlpatterns = [
-    path('login/', LoginView.as_view(template_name='common/login.html'), name='login'),
+    # path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
+    path('login/', DangerousLoginView.as_view(template_name='common/login.html'), name='login'),
 ]
