@@ -6,7 +6,7 @@ app_name = "common"
 
 
 
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,LogoutView
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
@@ -30,8 +30,19 @@ class DangerousLoginView(LoginView):
             return HttpResponseRedirect(redirect_to)
         return super(LoginView, self).dispatch(request, *args, **kwargs)
 
+
+class DangerousLogoutView(LogoutView):
+    '''A LoginView with no CSRF protection.'''
+    @method_decorator(csrf_exempt)
+    @method_decorator(never_cache)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     # path('login/', auth_views.LoginView.as_view(template_name='common/login.html'), name='login'),
+    # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('login/', DangerousLoginView.as_view(template_name='common/login.html'), name='login'),
+    path('logout/', DangerousLogoutView.LogoutView.as_view(), name='logout'),
+
 ]
