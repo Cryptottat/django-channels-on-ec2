@@ -146,8 +146,8 @@ CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster
 
 
 # CSRF_COOKIE_SAMESITE = 'None'
-# SESSION_COOKIE_SAMESITE = 'None'
-# SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
 
 
 
