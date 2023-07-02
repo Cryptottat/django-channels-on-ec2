@@ -2,8 +2,12 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+<script type="text/javascript">
+    console.log("로긴되어있음");
+  </script>
 {% else %}
   <script type="text/javascript">
+  console.log("로긴안되어있음");
     window.location.href="{% url 'common:login' %}";
   </script>
 {% endif %}
