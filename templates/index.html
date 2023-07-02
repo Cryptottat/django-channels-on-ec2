@@ -3,7 +3,6 @@
 
 {% if user.is_authenticated %}
 <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
-<br>
 <script type="text/javascript">
     console.log("로긴되어있음");
   </script>
@@ -14,7 +13,7 @@
   </script>
 {% endif %}
 
-<textarea id="chat-log" cols="30" rows="6"></textarea><br/>
+<textarea id="chat-log" cols="30" rows="5"></textarea><br/>
 
 
 
