@@ -142,17 +142,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = '/'
 
 CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster','https://bangprolab.com','https://www.bangprolab.com']
-# CSRF_TRUSTED_ORIGINS = ['*']
-
-CSRF_COOKIE_SAMESITE = 'None'
-
-SESSION_COOKIE_SAMESITE = 'None'
 
 
-#
+# CSRF_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SECURE = False
+
+
+
+
 # X_FRAME_OPTIONS = 'ALLOW-FROM bangprolab.com'
-#
-SESSION_COOKIE_SECURE = False
 # SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # CSRF_COOKIE_DOMAIN=None
 #
