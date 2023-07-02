@@ -139,8 +139,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # etc
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'https://nvrankup.monster/'
+LOGOUT_REDIRECT_URL = 'https://nvrankup.monster/'
 
 CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster','https://bangprolab.com','https://www.bangprolab.com']
 
