@@ -20,14 +20,7 @@
 
 {% load chat_extra_tags %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
-<!--아래 스크립트 내 렛 챗 로그= 이하 바로 아래 원래 메시지 불러오는 코드로 넣어야됨-->
-<!--    (function () {-->
-<!--        let messages = [{% for message in old_messages %}'{{ message }}',{% endfor %}];-->
-<!--        let creaties = [{% for message in old_messages %}'{{ message.get_created }}',{% endfor %}];-->
-<!--        for (i = messages.length; i > 0; i&#45;&#45;) {-->
-<!--            chat_log.value += (messages[i - 1]+ '\n');-->
-<!--        }-->
-<!--    })();-->
+
 <script>
     {% get_main_message as old_messages %}
 
