@@ -41,6 +41,8 @@
         let message = data['message'];
         let created = data['created'];
         chat_log.value += (message +'  ' + created + '\n');
+        var textarea = document.getElementById('chat-log');
+        textarea.scrollTop = textarea.scrollHeight;
     };
 
     chatSocket.onclose = function (e) {
