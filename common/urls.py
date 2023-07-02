@@ -31,5 +31,5 @@ class DangerousLoginView(LoginView):
         return super(LoginView, self).dispatch(request, *args, **kwargs)
 
 urlpatterns = [
-    path('login/', DangerousLoginView.as_view(template_name='common/login.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='common/login.html'), name='login'),
 ]
