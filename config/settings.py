@@ -145,8 +145,8 @@ LOGOUT_REDIRECT_URL = 'https://nvrankup.monster/'
 CSRF_TRUSTED_ORIGINS = ['https://nvrankup.monster','https://www.nvrankup.monster','https://bangprolab.com','https://www.bangprolab.com']
 
 
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
+# CSRF_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SAMESITE = 'None'
 # SESSION_COOKIE_SECURE = False
 
 
