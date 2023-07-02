@@ -29,7 +29,7 @@
         let messages = [{% for message in old_messages %}'{{ message }}',{% endfor %}];
         let creaties = [{% for message in old_messages %}'{{ message.get_created }}',{% endfor %}];
         for (i = messages.length; i > 0; i--) {
-            chat_log.value += (messages[i - 1] +'  ' + creaties[i - 1] + '\n');
+            chat_log.value += (messages[i - 1]+ '\n');
         }
     })();
 
@@ -39,7 +39,7 @@
         let data = JSON.parse(e.data);
         let message = data['message'];
         let created = data['created'];
-        chat_log.value += (message +'  ' + created + '\n');
+        chat_log.value += (message + '\n');
         var textarea = document.getElementById('chat-log');
         textarea.scrollTop = textarea.scrollHeight;
     };
