@@ -1,17 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if user.is_authenticated %}
-<a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
-<script type="text/javascript">
-    console.log("로긴되어있음");
-  </script>
-{% else %}
-  <script type="text/javascript">
-  console.log("로긴안되어있음");
-    window.location.href="{% url 'common:login' %}";
-  </script>
-{% endif %}
 
 <textarea id="chat-log" style="width:100%;" rows="18"></textarea><br/>
 
