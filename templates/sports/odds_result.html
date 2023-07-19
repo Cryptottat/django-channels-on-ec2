@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mx-2">
+    <button class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" onclick="location.href='{{ request.META.HTTP_REFERER }}'">이전</button>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="mt-5 align-bottom " style="vertical-align:bottom;">
+        <span class="fs-3" style="vertical-align:bottom;">
+            결과 값 합산:
+        </span>
+        <div>
+            <span class="fs-1 ms-5 text-danger">
+                {{ total.win }}
+            </span>
+            <span class="fs-3">승</span>
+        </div>
+        <div>
+            <span class="fs-1 ms-5">
+                {{ total.tie }}
+            </span>
+            <span class="fs-3">무</span>
+        </div>
+        <div>
+            <span class="fs-1 ms-5 text-primary">
+                {{ total.lose }}
+            </span>
+            <span class="fs-3">패</span>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="table-dark">
+            <th>일시</th>
+            <th>국가</th>
+            <th>리그</th>
+            <th>홈팀</th>
+            <th>홈득</th>
+            <th>원정득</th>
+            <th>원정팀</th>
+            <th>승</th>
+            <th>무</th>
+            <th>패</th>
+            <th>배팅결과</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% if result_list %}
+        {% for result in result_list %}
+        <tr>
+            <td>{{ result.game_time }}</td>
+            <td>{{ result.country_name }}</td>
+            <td>{{ result.league_name }}</td>
+            <td>{{ result.home }}</td>
+            <td>{{ result.home_count }}</td>
+            <td>{{ result.away_count }}</td>
+            <td>{{ result.away }}</td>
+            <td>{{ result.home_away_win }}</td>
+            <td>{{ result.home_away_tie }}</td>
+            <td>{{ result.home_away_lose }}</td>
+            <td>{{ result.betting_result }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">공지사항이 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

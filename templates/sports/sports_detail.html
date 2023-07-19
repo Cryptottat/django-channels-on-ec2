@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .input-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows:  1fr 1fr;
+	margin: 0 auto;
+	max-width: 95%;
+	}
+	.input-class{
+	margin: auto;
+	}
+
+</style>
+<div class="mx-2">
+    <button class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" onclick="location.href='{% url 'sports:index' %}'">종목 선택</button>
+</div>
+
+<form action="{% url 'sports:get_checkbox' %}" method="get" enctype="multipart/form-data" id="input_form">
+    <input type="hidden" name="sport_name" value="{{ sport_name }}">
+    <div class="mx-2  mt-4">
+        <div class="mb-3 input-container">
+            <span class="input-class" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label class="mx-1" for="win_odds" style="white-space: nowrap;">승</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="win_odds" id="win_odds" oninput="inputChanged()" min="0" value="win_odds">
+                <label class="mx-1 ms-3" for="tie_odds" style="white-space: nowrap;">무(0일시 조회X)</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="tie_odds" id="tie_odds" oninput="inputChanged()" min="0" value="tie_odds">
+                <label class="mx-1 ms-3" for="lose_odds" style="white-space: nowrap;">패</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="lose_odds" id="lose_odds" oninput="inputChanged()" min="0" value="lose_odds">
+                <label class="mx-1 ms-3" for="gap_odds" style="white-space: nowrap;">오차</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="gap_odds" id="gap_odds" oninput="inputChanged()" min="0" value="gap_odds">
+            </span>
+            <input class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" name="request_type" type="submit" value="배당 조회">
+        </div>
+    </div>
+    <div class="mx-2  mt-4">
+        <div class="mb-3 input-container">
+            <span class="input-class" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label class="mx-1" for="over_unover" style="white-space: nowrap;">오버</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="over_unover" id="over_unover" oninput="inputChanged()" min="0" value="win_odds">
+
+                {% if score_list %}
+                <label class="mx-1 ms-3" for="score_unover" style="white-space: nowrap;">기준점</label>
+<!--                <input type="number" class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="score_unover" id="score_unover" oninput="inputChanged()" min="0" value="tie_odds">-->
+                <select name="score"  class="form-select" form="input_form" id="score_unover">
+                {% for score in score_list %}
+                <option value="{{ score }}">{{ score }}</option>
+                    {% endfor %}
+                </select>
+
+                {% else %}
+                {% endif %}
+                <label class="mx-1 ms-3" for="under_unover" style="white-space: nowrap;">언더</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="under_unover" id="under_unover" oninput="inputChanged()" min="0" value="lose_odds">
+                <label class="mx-1 ms-3" for="gap_unover" style="white-space: nowrap;">오차</label>
+                <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="gap_unover" id="gap_unover" oninput="inputChanged()" min="0" value="gap_odds">
+            </span>
+            <input class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" name="request_type" type="submit" value="언오버 조회">
+        </div>
+    </div>
+
+
+    <div class="mt-2">
+        <table class="table">
+            <thead>
+            <tr class="table-dark">
+                <th>선택</th>
+                <th>국가</th>
+                <th>리그</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if type_list %}
+            {% for type in type_list %}
+            <tr>
+                <td><input type="checkbox" name="ch" value="{{ type.country_name }}%{{ type.league_name }}"></td>
+                <td>{{ type.country_name }}</td>
+                <td>{{ type.league_name }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="3">데이터가 없습니다.</td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</form>
+
+{% endblock %}

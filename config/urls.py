@@ -20,6 +20,7 @@ from chat.views import Notification, Home
 urlpatterns = [
     path("",Home.as_view()),
     path('common/', include('common.urls'),name='common'),
+    path('sports/', include('sports.urls'),name='sports'),
     path("admin/", admin.site.urls),
     path('notification/', Notification.as_view())
 ]
