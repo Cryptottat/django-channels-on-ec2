@@ -44,5 +44,6 @@ urlpatterns = [
     # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('login/', DangerousLoginView.as_view(template_name='common/login.html'), name='login'),
     path('logout/', DangerousLogoutView.as_view(), name='logout'),
+    path('auto/', views.AppLogin.as_view(), name='auto'),
 
 ]

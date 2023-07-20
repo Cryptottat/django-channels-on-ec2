@@ -1,14 +1,18 @@
 from django.contrib import admin
 
 # Register your models here.
-# from .models import User
-#
-# class AdminUser(admin.ModelAdmin):
-#     model = User
-#     list_display = (
-#         'username',
-#         'email',
-#         'point',
-#     )
-# # Register your models here.
-# admin.site.register(User,AdminUser)
+from .models import AutoUser
+
+
+class AdminAutoUser(admin.ModelAdmin):
+    model = AutoUser
+    list_display = (
+        'user_id',
+        'user_pw',
+        'name',
+        'phone',
+    )
+
+
+# Register your models here.
+admin.site.register(AutoUser, AdminAutoUser)
