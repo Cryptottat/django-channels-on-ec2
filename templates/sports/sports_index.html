@@ -7,11 +7,18 @@
 	}
 
 </style>
-<div>
-    <div >
+<div class="d-flex justify-content-center">
+    <div class="mt-5 align-bottom " style="vertical-align:bottom;">
+        <span class="fs-3" style="vertical-align:bottom;">
+            종목 선택
+        </span>
+    </div>
+</div>
+<div class="container show-grid">
+    <div class="row">
         {% if sport_name_list %}
         {% for sport_name in sport_name_list %}
-        <div class="mx-2">
+        <div class="col-md-6 mt-5">
             <button class="btn btn-primary btn-lg w-100 mt-2" onclick="location.href='{% url 'sports:detail' sport_name %}?fail='">
                 {{ sport_name }}
             </button>

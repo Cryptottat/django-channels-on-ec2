@@ -149,6 +149,14 @@ def get_checkbox(request):
     return render(request, 'sports/sports_index.html', {'sport_name_list': sport_name_list})
 
 def detail(request,sport_name):
+    if '하키' == sport_name:
+        sport_name = 'Hockey'
+    elif '농구' == sport_name:
+        sport_name = 'Basketball'
+    elif '야구' == sport_name:
+        sport_name = 'Baseball'
+    elif '축구' == sport_name:
+        sport_name = 'Football'
     sport_name=sport_name.lower()
     type_list = TypeInfo.objects.filter(sport_name=sport_name).values()
     score_list = ScoreInfo.objects.filter(sport_name=sport_name).all().values()
@@ -168,8 +176,20 @@ def index(request):
     #     value_list.append(i.values())
     print(sport_name_list)
 
+    kr_sport_name_list = []
+    for en_sport_name in sport_name_list:
+        if 'Hockey' == en_sport_name:
+            kr_sport_name_list.append('하키')
+        elif 'Basketball' == en_sport_name:
+            kr_sport_name_list.append('농구')
+        elif 'Baseball' == en_sport_name:
+            kr_sport_name_list.append('야구')
+        elif 'Football' == en_sport_name:
+            kr_sport_name_list.append('축구')
 
-    return render(request, 'sports/sports_index.html',{'sport_name_list':sport_name_list})
+
+
+    return render(request, 'sports/sports_index.html',{'sport_name_list':kr_sport_name_list})
 
 
 class Upload(APIView):

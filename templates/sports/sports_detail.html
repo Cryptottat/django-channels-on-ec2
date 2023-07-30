@@ -14,13 +14,21 @@
 
 </style>
 <div class="mx-2">
-    <button class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" onclick="location.href='{% url 'sports:index' %}'">종목 선택</button>
+    <button class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" onclick="location.href='{% url 'sports:index' %}'">이전(종목 선택)</button>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="mt-5 align-bottom " style="vertical-align:bottom;">
+        <span class="fs-3" style="vertical-align:bottom;">
+            스포츠 배당 조회
+        </span>
+    </div>
 </div>
 
 <form action="{% url 'sports:get_checkbox' %}" method="get" enctype="multipart/form-data" id="input_form">
     <input type="hidden" name="sport_name" value="{{ sport_name }}">
-    <div class="mx-2  mt-4">
-        <div class="mb-3 input-container">
+    <div class="mx-2  mt-4 border rounded-3">
+        <div class="mb-3 input-container mt-3">
             <span class="input-class" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                 <label class="mx-1" for="win_odds" style="white-space: nowrap;">승</label>
                 <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="win_odds" id="win_odds" oninput="inputChanged()" min="0" value="win_odds">
@@ -34,8 +42,8 @@
             <input class="d-flex justify-content-center btn btn-primary btn-rounded w-100 mt-2" name="request_type" type="submit" value="배당 조회">
         </div>
     </div>
-    <div class="mx-2  mt-4">
-        <div class="mb-3 input-container">
+    <div class="mx-2  mt-4 border rounded-3">
+        <div class="mb-3 input-container mt-3">
             <span class="input-class" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                 <label class="mx-1" for="over_unover" style="white-space: nowrap;">오버</label>
                 <input type="number" step=0.01 class="form-control" style="font-size:12px; padding-left:0px; padding-right:0px;" name="over_unover" id="over_unover" oninput="inputChanged()" min="0" value="win_odds">
